@@ -21,8 +21,7 @@ jQuery(document).ready(function() {
 		data: formData,
 		crossDomain: true,
 		headers: {
-      		'Content-Type': 'application/x-www-form-urlencoded',
-      		'Access-Control-Allow-Origin': 'https://sfdc-login-token.herokuapp.com/'
+      		'Content-Type': 'application/x-www-form-urlencoded'
     	},
 		success : function(result) {
 			console.log("success!");
