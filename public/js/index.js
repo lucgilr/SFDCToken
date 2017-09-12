@@ -20,6 +20,7 @@ jQuery(document).ready(function() {
 		url: 'https://login.salesforce.com/services/oauth2/token',
 		data: formData,
 		crossDomain: true,
+    	dataType: 'jsonp',
 		headers: {
       		'Content-Type': 'application/x-www-form-urlencoded'
     	},
