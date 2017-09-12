@@ -24,13 +24,13 @@ jQuery(document).ready(function() {
       		'Content-Type': 'application/x-www-form-urlencoded',
       		'Access-Control-Allow-Origin': 'https://sfdc-login-token.herokuapp.com/'
     	},
-		success : function() {
+		success : function(result) {
 			console.log("success!");
-			alert(result);
+			console.log(result);
 	    },
 	    error : function(error) {
 	    	console.log("error...");
-			alert(error);
+			console.log(error);
 	    }
 	});        
 	return false;
