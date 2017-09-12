@@ -24,7 +24,19 @@
 	<link href="https://lucgilr-developer-edition.eu6.force.com/customers/servlet/servlet.loginwidgetcontroller?type=css" rel="stylesheet" type="text/css" />
     <script src="https://lucgilr-developer-edition.eu6.force.com/customers/servlet/servlet.loginwidgetcontroller?type=javascript_widget" async defer></script>
 
-    <script>
+    
+  </head>
+<body>
+	<!--form method="post" role="login" id="loginInfo">
+        <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
+        <input type="text" id="username" name="username" placeholder="username" required class="form-control input-lg" />
+		<input type="password" id="password" class="form-control input-lg" placeholder="Password" required="" />
+        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
+    </form-->
+
+  	<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
+
+  	<script>
 	function onLogin(identity) {
 		
 		var targetDiv = document.querySelector(SFIDWidget.config.target);	
@@ -121,15 +133,5 @@
 	}
 	</script>
 
-  </head>
-<body>
-	<!--form method="post" role="login" id="loginInfo">
-        <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
-        <input type="text" id="username" name="username" placeholder="username" required class="form-control input-lg" />
-		<input type="password" id="password" class="form-control input-lg" placeholder="Password" required="" />
-        <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
-    </form-->
-
-  	<div id="sign-in-link" style="position: absolute; top: 20px;right: 20px;"></div>
 
 </body>
