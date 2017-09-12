@@ -2,14 +2,55 @@
 <html>
 <head>
 	<title>Test</title>
-	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
-	<script type="text/javascript" src="/js/index.js"></script>
+	<meta name="salesforce-community" content="https://lucgilr-developer-edition.eu6.force.com/customers">
+	<meta name="salesforce-client-id" content="3MVG98_Psg5cppyZFSE9IdHLIUHC7NS3_V8Oec0wsphdsCcAg5GtxeAciNbKunR5FKkI4pzmWgw5v5qrULPfv">
+	<meta name="salesforce-redirect-uri" content="https://sfdc-login-token.herokuapp.com/_callback.html">
+	<meta name="salesforce-namespace" content="">
+	<meta name="salesforce-mode" content="inline">
+	<meta name="salesforce-target" content="#salesforce-login">
+	<meta name="salesforce-login-handler" content="onLogin">
+	<meta name="salesforce-logout-handler" content="onLogout">
+	<link href="https://lucgilr-developer-edition.eu6.force.com/customers/resource/salesforce_login_widget_css" rel="stylesheet" type="text/css" />  
+	<script src="https://lucgilr-developer-edition.eu6.force.com/customers/resource/salesforce_login_widget_js_min" async defer></script>
+
+	<script>
+	function onLogin(identity) {
+		
+		var targetDiv = document.querySelector(SFIDWidget.config.target);	
+		var img = document.createElement('img'); 
+	 	img.src = identity.photos.thumbnail; 
+		img.className = "sfid-avatar";
+	
+		var username = document.createElement('span'); 
+		username.innerHTML = identity.username;
+		username.className = "sfid-avatar-name";
+	
+		var iddiv = document.createElement('div'); 
+	 	iddiv.id = "sfid-identity";
+		iddiv.appendChild(img);		
+		iddiv.appendChild(username);		
+	
+		targetDiv.innerHTML = '';
+		targetDiv.appendChild(iddiv);	
+	}
+	
+	function onLogout() {
+		SFIDWidget.init();
+	}
+	
+	</script>
+
+	<!--script type="text/javascript" src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+	<script type="text/javascript" src="/js/index.js"></script-->
 </head>
 <body>
-	<form method="post" role="login" id="loginInfo">
+	<!--form method="post" role="login" id="loginInfo">
         <img src="http://i.imgur.com/RcmcLv4.png" class="img-responsive" alt="" />
         <input type="text" id="username" name="username" placeholder="username" required class="form-control input-lg" />
 		<input type="password" id="password" class="form-control input-lg" placeholder="Password" required="" />
         <input type="submit" class="btn btn-lg btn-primary btn-block" value="Login">
-    </form>
+    </form-->
+
+    <div id="salesforce-login" data-login-event="onLogin"></div>
+
 </body>
