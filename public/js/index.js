@@ -20,9 +20,9 @@ jQuery(document).ready(function() {
 		url: 'https://login.salesforce.com/services/oauth2/token',
 		data: formData,
 		crossDomain: true,
-    	dataType: 'jsonp',
 		headers: {
-      		'Content-Type': 'application/x-www-form-urlencoded'
+      		'Content-Type': 'application/x-www-form-urlencoded',
+      		'Access-Control-Allow-Origin': 'https://sfdc-login-token.herokuapp.com/'
     	},
 		success : function() {
 			console.log("success!");
