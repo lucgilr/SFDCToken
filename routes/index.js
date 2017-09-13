@@ -8,6 +8,7 @@ app.use(bodyParser.json());
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	try {		
+		res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 		res.render('index2');
 	} catch (exception) {
 		console.log(exception);
@@ -16,6 +17,7 @@ router.get('/', function(req, res, next) {
 
 router.post('/', function(req, res, next) {
 	try {		
+		res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 	    console.log('req received');
 	    console.log('Username: '+req.body.username);
 	    console.log('Password: '+req.body.password);
@@ -26,6 +28,7 @@ router.post('/', function(req, res, next) {
 
 router.get('/callback', function(req, res, next) {
 	try {		
+		res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 		res.render('callback');
 	} catch (exception) {
 		console.log(exception);
