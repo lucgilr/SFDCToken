@@ -7,12 +7,14 @@ var app = express();
 
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
-app.set('etag',false);
 app.set('port', (process.env.PORT || 5000))
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public'), {
+	etag: false
+}));
+
 
 var indexRouter = require('./routes/index');
 
