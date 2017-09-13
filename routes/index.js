@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	try {		
-		res.render('index');
+		res.render('index2');
 	} catch (exception) {
 		console.log(exception);
 	}
