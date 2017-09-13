@@ -8,7 +8,7 @@ app.use(bodyParser.json());
 /* GET home page. */
 router.get('/', function(req, res, next) {
 	try {		
-		//res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
+		res.header('Cache-Control', 'no-cache, private, no-store, must-revalidate, max-stale=0, post-check=0, pre-check=0');
 		res.render('index2');
 	} catch (exception) {
 		console.log(exception);
