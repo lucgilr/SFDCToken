@@ -16,7 +16,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 var indexRouter = require('./routes/index');
 
-app.use('/login', indexRouter);
+app.use('/', indexRouter);
 
 app.listen(app.get('port'), function() {
   console.log("Node app is running at localhost:" + app.get('port'))

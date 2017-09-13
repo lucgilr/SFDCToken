@@ -24,4 +24,12 @@ router.post('/', function(req, res, next) {
 	}
 });
 
+router.get('/callback', function(req, res, next) {
+	try {		
+		res.render('callback');
+	} catch (exception) {
+		console.log(exception);
+	}
+});
+
 module.exports = router;
