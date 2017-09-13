@@ -26,6 +26,7 @@ router.post('/', function(req, res, next) {
 
 router.get('/callback', function(req, res, next) {
 	try {		
+		res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
 		res.render('callback');
 	} catch (exception) {
 		console.log(exception);
