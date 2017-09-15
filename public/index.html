@@ -148,8 +148,8 @@
         chemex.innerHTML = 'Login for more info';
     }
     $(document).ready(function() {
-        if (win.localStorage) {
-            var v = win.localStorage;
+        if (window.localStorage) {
+            var v = window.localStorage;
             for (var d = v.length - 1; d >= 0; d -= 1) {
                 var c = v.key(d);
                 if ("00D" === c.substring(0, 3) && "005" === c.substring(15, 18)) {
