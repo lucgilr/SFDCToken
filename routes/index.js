@@ -71,12 +71,6 @@ router.get('/callback', function(req, res, next) {
 			console.log('CALLBACK - statusCode:', postRes.statusCode);
 			console.log('CALLBACK - headers:', postRes.headers);
 
-			if (postRes.statusCode != 200) {
-				var postResStr = JSON.stringify(postRes);
-				console.log('CALLBACK - postRes:', postResStr);
-				res.status(postRes.statusCode).json(postResStr);
-			}
-
 			postRes.setEncoding('utf8');
 
 			var response = '';
@@ -85,6 +79,11 @@ router.get('/callback', function(req, res, next) {
 			});
 
 			postRes.on('end', function () {
+				if (postRes.statusCode != 200) {
+					console.log('CALLBACK - postRes:', response);
+					res.status(postRes.statusCode).json(JSON.parse(response));
+				}
+
 				console.log('CALLBACK - response: ' + response);
 
 				var html = '<html><head>' +
