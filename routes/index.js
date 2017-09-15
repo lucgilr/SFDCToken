@@ -18,7 +18,7 @@ router.get('/', function(req, res, next) {
 	}
 });
 
-router.get('/callback', function(req, res, next) {
+router.get('/_callback', function(req, res, next) {
 	try {
 		var code = req.query.code;
 		if (code) {
