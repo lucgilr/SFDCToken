@@ -49,7 +49,6 @@ router.get('/callback', function(req, res, next) {
 
 		var postOptions = {
 			uri: communityUrl + '/embeddedlogin/services/oauth2/token',
-			port: '443',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
@@ -83,7 +82,6 @@ router.get('/callback', function(req, res, next) {
 
 				var getOptions = {
 					uri: identity + '?version=latest',
-					port: '443',
 					method: 'GET',
 					headers: {
 						'Authorization': 'Bearer ' + access_token
