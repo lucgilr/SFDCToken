@@ -4,6 +4,7 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var https = require('https');
+var request = require('request');
 var querystring = require('querystring');
 
 app.use(bodyParser.json());
@@ -48,7 +49,7 @@ router.get('/callback', function(req, res, next) {
 					   "&client_secret=9219936345482605892&redirect_uri=https://sfdc-login-token.herokuapp.com/callback";
 
 		var postOptions = {
-			uri: communityUrl + '/embeddedlogin/services/oauth2/token',
+			url: communityUrl + '/embeddedlogin/services/oauth2/token',
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
@@ -81,7 +82,7 @@ router.get('/callback', function(req, res, next) {
 				var identity = response.id;
 
 				var getOptions = {
-					uri: identity + '?version=latest',
+					url: identity + '?version=latest',
 					method: 'GET',
 					headers: {
 						'Authorization': 'Bearer ' + access_token
