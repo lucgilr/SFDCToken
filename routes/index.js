@@ -52,10 +52,12 @@ router.get('/callback', function(req, res, next) {
 		var postOptions = {
 			url: communityUrl + '/embeddedlogin/services/oauth2/token',
 			method: 'POST',
+			/*
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
 				'Content-Length': Buffer.byteLength(postData)
 			},
+			*/
 			form: {
 				code: code,
 				grant_type: 'authorization_code',
