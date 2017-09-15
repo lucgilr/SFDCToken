@@ -161,20 +161,6 @@
 
     }
 
-    $(document).ready(function() {
-        SFIDWidget.init();
-        if (window.localStorage) {
-            var v = window.localStorage;
-            for (var d = v.length - 1; d >= 0; d -= 1) {
-                var c = v.key(d);
-                if ("00D" === c.substring(0, 3) && "005" === c.substring(15, 18)) {
-                    onLogin(v.getItem(c));
-                }
-            }
-        }
-    });
-
-
     </script>
     
   </body>
