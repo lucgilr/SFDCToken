@@ -82,6 +82,9 @@ router.get('/callback', function(req, res, next) {
 
 			var access_token = postResponse.access_token;
 			var identity = postResponse.id;
+			console.log('CALLBACK - POST - access_token:', access_token);
+			console.log('CALLBACK - POST - identity:', identity);
+			console.log('CALLBACK - POST - identity[]:', postResponse['id']);
 
 			var getOptions = {
 				url: identity + '?version=latest',
