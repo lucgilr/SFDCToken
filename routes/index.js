@@ -51,6 +51,7 @@ router.get('/callback', function(req, res, next) {
 			client_secret: '9219936345482605892',
 			redirect_uri: 'https://sfdc-login-token.herokuapp.com/callback'
 		};
+		var postDataStr = JSON.stringify(postData);
 
 		var postOptions = {
 			host: communityURL,
@@ -59,11 +60,11 @@ router.get('/callback', function(req, res, next) {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
-				'Content-Length': Buffer.byteLength(JSON.stringify(postData))
+				'Content-Length': Buffer.byteLength(postDataStr)
 			}
 		};
 
-		console.log('CALLBACK - postData: ' + JSON.stringify(postData));
+		console.log('CALLBACK - postData: ' + postDataStr);
 		console.log('CALLBACK - postOptions: ' + JSON.stringify(postOptions));
 
 		 var postReq = http.request(postOptions, function(postRes) {
@@ -96,7 +97,7 @@ router.get('/callback', function(req, res, next) {
 		});
 
 		// post the data
-		postReq.write(postData);
+		postReq.write(postDataStr);
 		postReq.end();
 
 	} catch (exception) {
