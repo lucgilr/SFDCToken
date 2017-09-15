@@ -9,10 +9,11 @@
   "dependencies": {
     "express": "^4.13.3",
     "body-parser": "~1.15.2",
-    "hbs": "~4.0.0"
+    "hbs": "~4.0.0",
+    "querystring": "0.2.0"
   },
   "engines": {
-    "node": "4.0.0"
+    "node": "6.11.3"
   },
   "repository": {
     "type": "git",
