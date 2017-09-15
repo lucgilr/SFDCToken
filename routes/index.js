@@ -44,14 +44,8 @@ router.get('/callback', function(req, res, next) {
 		var tokenResponse = null;
 		var communityUrl = 'vldtest-developer-edition.eu6.force.com';
 
-		var postData = {
-			code: code,
-			grant_type: 'authorization_code',
-			client_id: '3MVG98_Psg5cppyZT.V54UWRRSi0tcHOtdsX0VQ3DfW.Rf479WhMV9nVCTIp39qeCQLIjZsWIL4HDWRFX6n_P',
-			client_secret: '9219936345482605892',
-			redirect_uri: 'https://sfdc-login-token.herokuapp.com/callback'
-		};
-		var postDataStr = JSON.stringify(postData);
+		var postData = "code=" + code + "&grant_type=authorization_code&client_id=3MVG98_Psg5cppyZT.V54UWRRSi0tcHOtdsX0VQ3DfW.Rf479WhMV9nVCTIp39qeCQLIjZsWIL4HDWRFX6n_P" +
+					   "client_secret=9219936345482605892&redirect_uri=https://sfdc-login-token.herokuapp.com/callback";
 
 		var postOptions = {
 			host: communityUrl,
@@ -60,11 +54,11 @@ router.get('/callback', function(req, res, next) {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
-				'Content-Length': Buffer.byteLength(postDataStr)
+				'Content-Length': Buffer.byteLength(postData)
 			}
 		};
 
-		console.log('CALLBACK - postData: ' + postDataStr);
+		console.log('CALLBACK - postData: ' + postData);
 		console.log('CALLBACK - postOptions: ' + JSON.stringify(postOptions));
 
 		 var postReq = https.request(postOptions, function(postRes) {
@@ -110,7 +104,7 @@ router.get('/callback', function(req, res, next) {
 			console.error(error);
 		});
 
-		postReq.write(postDataStr);
+		postReq.write(postData);
 		postReq.end();
 
 	} catch (exception) {
