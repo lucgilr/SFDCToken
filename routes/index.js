@@ -3,7 +3,7 @@ var router = express.Router();
 var bodyParser = require('body-parser');
 var app = express();
 
-var http = require('http');
+var https = require('https');
 var querystring = require('querystring');
 
 app.use(bodyParser.json());
@@ -67,8 +67,11 @@ router.get('/callback', function(req, res, next) {
 		console.log('CALLBACK - postData: ' + postDataStr);
 		console.log('CALLBACK - postOptions: ' + JSON.stringify(postOptions));
 
-		 var postReq = http.request(postOptions, function(postRes) {
-			postRes.setEncoding('utf8');
+		 var postReq = https.request(postOptions, function(postRes) {
+			console.log('CALLBACK - statusCode:', postRes.statusCode);
+			console.log('CALLBACK - headers:', postRes.headers);
+
+			//postRes.setEncoding('utf8');
 
 			var response = '';
 			postRes.on('data', function (chunk) {
@@ -97,6 +100,10 @@ router.get('/callback', function(req, res, next) {
 		});
 
 		// post the data
+		postReq.on('error', function(error) {
+			console.error(error);
+		});
+
 		postReq.write(postDataStr);
 		postReq.end();
 
