@@ -82,6 +82,7 @@ router.get('/callback', function(req, res, next) {
 				if (postRes.statusCode != 200) {
 					console.log('CALLBACK - postRes:', response);
 					res.status(postRes.statusCode).json(JSON.parse(response));
+					return;
 				}
 
 				console.log('CALLBACK - response: ' + response);
