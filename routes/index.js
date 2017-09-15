@@ -42,7 +42,7 @@ router.get('/callback', function(req, res, next) {
 		console.log('CALLBACK - startURL: ' + startURL);
 
 		var tokenResponse = null;
-		var communityURL = 'vldtest-developer-edition.eu6.force.com';
+		var communityUrl = 'vldtest-developer-edition.eu6.force.com';
 
 		var postData = {
 			code: code,
@@ -54,7 +54,7 @@ router.get('/callback', function(req, res, next) {
 		var postDataStr = JSON.stringify(postData);
 
 		var postOptions = {
-			host: communityURL,
+			host: communityUrl,
 			port: '443',
 			path: '/embeddedlogin/services/oauth2/token',
 			method: 'POST',
