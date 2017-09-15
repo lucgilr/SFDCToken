@@ -4,7 +4,6 @@ var bodyParser = require('body-parser');
 var app = express();
 
 var https = require('https');
-var request = require('request');
 var querystring = require('querystring');
 
 app.use(bodyParser.json());
