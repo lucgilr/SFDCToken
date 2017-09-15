@@ -34,26 +34,15 @@ router.get('/_callback', function(req, res, next) {
 		var tokenResponse = null;
 		var communityUrl = 'https://vldtest-developer-edition.eu6.force.com';
 
-		/*
-		var postData = "code=" + code + "&grant_type=authorization_code&client_id=3MVG98_Psg5cppyZT.V54UWRRSi0tcHOtdsX0VQ3DfW.Rf479WhMV9nVCTIp39qeCQLIjZsWIL4HDWRFX6n_P" +
-					   "&client_secret=9219936345482605892&redirect_uri=https://sfdc-login-token.herokuapp.com/callback";
-		*/
-
 		var postOptions = {
 			url: communityUrl + '/embeddedlogin/services/oauth2/token',
 			method: 'POST',
-			/*
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-				'Content-Length': Buffer.byteLength(postData)
-			},
-			*/
 			form: {
 				code: code,
 				grant_type: 'authorization_code',
 				client_id: '3MVG98_Psg5cppyZT.V54UWRRSi0tcHOtdsX0VQ3DfW.Rf479WhMV9nVCTIp39qeCQLIjZsWIL4HDWRFX6n_P',
 				client_secret: '9219936345482605892',
-				redirect_uri: 'https://sfdc-login-token.herokuapp.com/callback'
+				redirect_uri: 'https://sfdc-login-token.herokuapp.com/_callback'
 			}
 		};
 
