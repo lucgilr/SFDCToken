@@ -91,7 +91,7 @@ router.get('/_callback', function(req, res, next) {
 						   '<meta name="salesforce-server-response" content="' + new Buffer(getResponse).toString('base64') + '">' +
 						   '<meta name="salesforce-server-starturl" content="' + startURL + '">' +
 						   '<meta name="salesforce-target" content="#salesforce-login">'+
-						   '<meta name="salesforce-allowed-domains" content="sfdc-login-token.herokuapp.com">' +
+						   '<meta name="salesforce-allowed-domains" content="https://sfdc-login-token.herokuapp.com">' +
 						   '<script src="' + communityUrl + '/embeddedlogin/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false&cacheMaxAge=0" async defer></script>' +
 						   '</head><body></body></html>';
 				console.log('CALLBACK - html: ' + html);
