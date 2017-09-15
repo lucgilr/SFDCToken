@@ -49,7 +49,7 @@ router.get('/callback', function(req, res, next) {
 			grant_type: 'authorization_code',
 			client_id: '3MVG98_Psg5cppyZT.V54UWRRSi0tcHOtdsX0VQ3DfW.Rf479WhMV9nVCTIp39qeCQLIjZsWIL4HDWRFX6n_P',
 			client_secret: '9219936345482605892',
-			redirect_uri: 'https://' + communityURL + '/embeddedlogin/callback'
+			redirect_uri: 'https://sfdc-login-token.herokuapp.com/callback'
 		};
 
 		var postOptions = {
@@ -59,7 +59,7 @@ router.get('/callback', function(req, res, next) {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
-				'Content-Length': Buffer.byteLength(postData)
+				'Content-Length': Buffer.byteLength(JSON.stringify(postData))
 			}
 		};
 
