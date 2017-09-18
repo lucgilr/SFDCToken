@@ -32,16 +32,16 @@ router.get('/_callback', function(req, res, next) {
 		console.log('CALLBACK - startURL: ' + startURL);
 
 		var tokenResponse = null;
-		var communityUrl = 'https://vldtest-developer-edition.eu6.force.com';
+		var communityUrl = 'https://lucgilr-developer-edition.eu6.force.com';
 
 		var postOptions = {
-			url: communityUrl + '/embeddedlogin/services/oauth2/token',
+			url: communityUrl + '/customers/services/oauth2/token',
 			method: 'POST',
 			form: {
 				code: code,
 				grant_type: 'authorization_code',
-				client_id: '3MVG98_Psg5cppyZT.V54UWRRSi0tcHOtdsX0VQ3DfW.Rf479WhMV9nVCTIp39qeCQLIjZsWIL4HDWRFX6n_P',
-				client_secret: '9219936345482605892',
+				client_id: '3MVG98_Psg5cppyZFSE9IdHLIUHC7NS3_V8Oec0wsphdsCcAg5GtxeAciNbKunR5FKkI4pzmWgw5v5qrULPfv',
+				client_secret: '2622055315156138549',
 				redirect_uri: 'https://sfdc-login-token.herokuapp.com/_callback'
 			}
 		};
@@ -85,14 +85,14 @@ router.get('/_callback', function(req, res, next) {
 				}
 
 				var html = '<html><head>' +
-						   '<meta name="salesforce-community" content="' + communityUrl + '/embeddedlogin">' +
+						   '<meta name="salesforce-community" content="' + communityUrl + '/customers">' +
 						   '<meta name="salesforce-mode" content="modal-callback">' +
 						   '<meta name="salesforce-server-callback" content="true">' +
 						   '<meta name="salesforce-server-response" content="' + new Buffer(getResponse).toString('base64') + '">' +
 						   '<meta name="salesforce-server-starturl" content="' + startURL + '">' +
 						   '<meta name="salesforce-target" content="#salesforce-login">'+
 						   '<meta name="salesforce-allowed-domains" content="sfdc-login-token.herokuapp.com">' +
-						   '<script src="' + communityUrl + '/embeddedlogin/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false&cacheMaxAge=0" async defer></script>' +
+						   '<script src="' + communityUrl + '/customers/servlet/servlet.loginwidgetcontroller?type=javascript_widget&min=false&cacheMaxAge=0" async defer></script>' +
 						   '</head><body></body></html>';
 				console.log('CALLBACK - html: ' + html);
 
